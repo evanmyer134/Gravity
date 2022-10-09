@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import numpy as np\n#import scipy.signal as signal\nfrom numpy import linalg as LA\nimport matplotlib.pyplot as plt\nfrom scipy import ndimage\nfrom scipy import integrate\n#from scipy.stats import gamma\nfrom scipy.special import gamma\n#from numpy.random import gamma as rgamma\nfrom scipy.integrate import odeint\nfrom scipy.fftpack import ifftn\nfrom scipy.linalg import eigh_tridiagonal\n#import scipy.stats as stats\n#from functools import partial\n#from scipy.special import jv, yn  \n#from scipy import misc, fftpack",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "z = np.arange(-20,22,2.2)\nb = np.arange(-20,22,2.2)\n\n\n#z = np.arange(-10, 10, .25)\n#b = np.arange(-10, 10, .25)\n\nZ, B = np.meshgrid(z,b)\n\nsad = Z*Z*Z*Z - 6*B*B*Z*Z + B*B*B*B\n\nK = -36 * (Z**2 + B**2) / (1 + 9 * (Z**2 + B**2)**2)**2\n\ndef divergence(sad):\n    return np.sum(np.gradient(sad), axis=0)\n\nGG = divergence(sad)\nHH = divergence(GG)\nII = divergence(HH)\n\ndata = np.stack((sad, GG))\ncov = np.cov(sad, GG)\n\neigen_values, eigen_vectors = LA.eig(cov)\n\neig_vec1 = eigen_vectors[:,0]\neig_vec2 = eigen_vectors[:,1]\n\nkinetic = []\npotential = []\ntime = []\ndelta = []\nacc = []\nskew_axis = []\na_axis = []\nrad_adj = []\n\n\nfor i in range(len(z)):\n    time.append([i])\n    potential.append(eig_vec1[i])\n    kinetic.append(eig_vec2[i])\n    delta.append(kinetic[i]/potential[i])\n    acc.append(eigen_vectors)\n    \n    skew_axis.append(GG[i][i])\n    a_axis.append(GG[(len(z)) - i - 1][i])\n    rad_adj.append(a_axis[i] / skew_axis[i])\n\nEpotential = np.mat(np.diag(potential, 0))\n\nfield = np.linalg.solve(Epotential, sad)\n\nfield_soln = field.T @ field\n\n#plt.plot(field_soln[2])\n#plt.streamplot(Z, B, Z, CC)\n#plt.show()\n\n#fig = plt.figure()\n#ax = plt.axes(projection = '3d')\n#ax.plot_surface(Z,B,field_soln)\n\n#plt.show()",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "galaxy = ndimage.convolve (GG, Z, mode='constant')\n\n# = lambda galaxy, param: galaxy**2 * np.exp(param)\n#intg = lambda galaxy: galaxy\n#integrate.quad(intg, 0, np.inf), np.sum(galaxy), integrate.quad(intg, 0, 4 * np.pi), integrate.quad(intg, -np.inf, np.inf)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#image center\ncen_x = 0\ncen_y = 0\n\n#image parameters\nimg_a = galaxy.shape[0]\nimg_b = galaxy.shape[1]\n\n#find radial distances\n[XX, YY] = np.meshgrid(np.arange(img_b) - cen_x, np.arange(img_a) - cen_y)\nRad = np.sqrt(np.square(XX) + np.square(YY))\nrad = np.arange(1, np.max(Rad), 1)\n\nintensity = np.zeros(len(rad))\nindex = 0\nbin_size = 1\n\nfor i in rad:\n    mask = (np.greater(Rad, i - bin_size) & np.less(Rad, i + bin_size))\n    values = galaxy[mask]#**2\n    intensity[index] = np.mean(values)\n    index += 1",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "data = galaxy #plt.contourf(X, Y, FFF)\ndata_x, data_y = data.shape\nxd, yd = np.ogrid[0:data_x, 0:data_y]\n\nr_data = np.hypot(xd - data_x/2, yd - data_y/2)\ndata_bin = (len(z) * r_data/r_data.max()).astype(np.int)\nradial_mean = ndimage.mean(data, labels=data_bin, index=np.arange(1, data_bin.max() + 1))\n\n#plt.plot(data_bin,radial_mean)\n#plt.show()",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "def divergencefield(radial_mean):\n    return np.sum(np.gradient(radial_mean), axis=0)\n\nstructure_constant = divergencefield(radial_mean)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#zero = (np.fft.ifftshift(image[0]))\n#fourier_zer = np.fft.rfft(zero)\ninten = ifftn(intensity)\nfourier_inten = (np.fft.rfft(inten))\nkern = ifftn(fourier_inten)\n\n#plt.plot(fourier_trans)\nplt.plot(fourier_inten)\n\n#plt.plot(zero)\n#plt.plot(fourier_zer)\nplt.plot(inten)\nplt.plot(kern)\nplt.show()",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Diffusion\n\n#the diffusion flux is proportional to the negative of the concentration gradient:\n\n#Fick's first law: the diffusion flux is proportional to the negative of the \n#concentration gradient:\n\n\n#if u is the density at equilibrium of some quantity such as a chemical \n#concentration, then the net flux of u through the boundary ∂V of any smooth \n#region V is zero, provided there is no source or sink within V\n\n#If φ denotes the electrostatic potential associated to a charge distribution q,\n#then the charge distribution itself is given by the negative of the Laplacian \n#of φ:\n\ndef divergenceg(galaxy):\n    return np.sum(np.gradient(galaxy), axis=0)\n\ndef divergenced(diffusion):\n    return np.sum(np.gradient(diffusion), axis=0)\n\ndiffusion = divergenceg(galaxy)\ndelta = divergenced(diffusion)\n\ncconstant = diffusion / delta\n\nconstant = np.sum(cconstant)\n\n#fig, ax = plt.subplots()\n\ndx, dy = np.gradient(galaxy)\n\n#plt.quiver(Z, B, dy, dx)\n\nplt.streamplot(Z, B, dy, dx)\n\nplt.show()\n\n#q = −ε0 Δφ\n\n#where ε0 is the electric constant\nconstant",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#general solution = A(np.sin(y0)*np.cos(w0-t)-np.cos(y0)*np.sin(w0-t))\n\n#https://stackoverflow.com/questions/64622311/phase-portraits-for-systems-of-odes\n#http://www.egwald.ca/nonlineardynamics/bifurcations.php\n#https://stackoverflow.com/questions/60113260/plotting-the-phase-portrait-for-a\n#-system-of-3-ode-by-matplotlib\n\n#general solution = A(np.sin(y0)*np.cos(w0-t)-np.cos(y0)*np.sin(w0-t))\n\n#dx / dt = f(x, y) = x2 - y2 + α,\n#dy / dt = g(x, y) = -2 * x * y + β.\n\n\ndef field (w0, t):\n    pos = w0[0]**2 - w0[1]**2\n    vel = -2 * w0[0] * w0[1]\n    return [pos, vel]\n\nX, Y = np.mgrid[-np.pi:np.pi:-30j,-6:6:30j]\nU, V = field([X,Y],0)\n\nfig, ax = plt.subplots(figsize=(10, 10))\nax.quiver(X, Y, U, V)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "soln = np.stack((galaxy, diffusion))\nmotion = np.cov(galaxy, diffusion)\n\n#plt.plot(cov)\n#plt.show()\n\n#https://stackoverflow.com/questions/54644957/how-to-plot-largest-and-smallest\n#-eigen-vectors-for-2-dimensional-data-using-num\n\nmotion_values, motion_vectors = LA.eig(motion)\n\nmotion_vec1 = motion_vectors[:,0]\nmotion_vec2 = motion_vectors[:,1]\n\n#plt.scatter(eig_vec1, eig_vec2)\n#plt.plot(eig_vec1/eig_vec2)\nplt.plot(motion_vec2)\nplt.plot(motion_vec1)\nplt.show()\n\n#https://www.youtube.com/watch?v=-2bBukw4az8\n#https://www.youtube.com/watch?v=AeIttlCdFXU\n\nplt.quiver(0,0, motion_values @ motion_vec1, motion_values @ motion_vec2)\nplt.show()\n\n#fft(galaxy)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "kntc = np.mat(np.diag(mon, 0))\n\nmotion = np.linalg.solve(kntc, galaxy)\n\nmotion_soln = motion.T @ motion",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#https://levelup.gitconnected.com/solving-2d-heat-equation-numerically-using\n#-python-3334004aa01a\n\nplate_length = len(z)\nmax_iter_time = 500\n\nalpha = 1/constant\ndelta_x = 1\n\ndelta_t = (delta_x ** 2)/(4 * alpha)\ngamma = (alpha * delta_t) / (delta_x ** 2)\n\n# Initialize solution: the grid of u(k, i, j)\nu = np.empty((max_iter_time, plate_length, plate_length))\n\n# Initial condition everywhere inside the grid\nu_initial = galaxy\n\n\n# Boundary conditions\nu_top = 0\nu_left = 0\nu_bottom = 0\nu_right = 0\n\n# Set the initial condition\nu[0,:,:] = galaxy\n\n# Set the boundary conditions\nu[:, (plate_length-1):, :] = u_top\nu[:, :, :1] = u_left\nu[:, :1, 1:] = u_bottom\nu[:, :, (plate_length-1):] = u_right\n\ndef calculate(u):\n    for k in range(0, max_iter_time-1, 1):\n        for i in range(1, plate_length-1, delta_x):\n            for j in range(1, plate_length-1, delta_x):\n                u[k + 1, i, j] = gamma * (u[k][i+1][j] + u[k][i-1][j] + u[k][i][j+1] + u[k][i][j-1] - 4*u[k][i][j]) + u[k][i][j]\n\n    return u\n\ndef plotheatmap(u_k, k):\n    # Clear the current plot figure\n    plt.clf()\n\n    plt.title(f\"Temperature at t = {k*delta_t:.3f} unit time\")\n    plt.xlabel(\"x\")\n    plt.ylabel(\"y\")\n\n    # This is to plot u_k (u at time-step k)\n    plt.pcolormesh(u_k, cmap=plt.cm.jet, vmin=0, vmax=100)\n    plt.colorbar()\n\n    return plt\n\n\nu = calculate(u)\n\ndef animate(k):\n    plotheatmap(u[k], k)\n\n#anim = animation.FuncAnimation(plt.figure(), animate, interval=1, frames=max_iter_time, repeat=False)\n#anim.save(\"heat_equation_solution.gif\")",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "diff = np.linalg.solve(GG, HH)\n#FF = np.linalg.solve(cov_dot, e_vec)\ndiff_soln = diff.T @ diff",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "diff_solc = diff_soln[50]\nheat = u[50][50]\nreln = heat / diff_solc\n\n#plt.plot(diff_soln[1])\n#plt.plot(u[1][1])\n#plt.plot(reln)\nplt.plot(field_soln[50]/reln)\nplt.show()",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#https://www.sensorsone.com/mass-flow-and-density-to-volume-flow-calculator/\n#http://ned.ipac.caltech.edu/level5/March05/Bosma/frames.html\n\ndef divergencei(intensity):\n    return np.sum(np.gradient(galaxy), axis=0)\n\ndef divergencem(radial_mean):\n    return np.sum(np.gradient(radial_mean), axis=0)\n\nacc_1 = divergencei(intensity)\nacc_2 = divergencem(radial_mean)\n\n\nintensity_a = []\nintensity_b = []\n\nfor i in range(len(z)):\n    intensity_a.append(intensity[i])\n    intensity_b.append(acc_1[i])\n\nplt.scatter(intensity_a, radial_mean)\nplt.show()\n\n\n#https://www.sensorsone.com/mass-flow-and-density-to-volume-flow-calculator/\n#http://ned.ipac.caltech.edu/level5/March05/Bosma/frames.html\n\n\nM = intensity_a #mass flow rate\nrho = radial_mean #surface density\nQ = M / rho\n\nacclr = intensity_b / acc_2\n\nacc = np.sum(acclr)\nacc",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
