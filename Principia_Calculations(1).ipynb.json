@@ -1,0 +1,1391 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import numpy as np\n#import itertools as it\n#from scipy.special import gamma, factorial\n#from scipy import integrate\n#import matplotlib.pyplot as plt\n#from scipy.special import jv, yn",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Gravity measures the relationship between space, time and mass, such that as\n#more mass is added to a system the kinetic energy of the system stays constant\n\n#In oreder to maintain the laws of Thermodynamics, increasing mass must slow the\n#pace of time, such that measuring space/time stays constant, kinetic energy\n#stays constant",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Suppose a rock's weight is measured as 10 newtons when suspended by a string in \n#a vacuum with gravity acting upon it. Suppose that when the rock is lowered into \n#water, it displaces water of weight 3 newtons. The force it then exerts on the \n#string from which it hangs would be 10 newtons minus the 3 newtons of buoyancy \n#force: 10 − 3 = 7 newtons\n\n#Gravity measures the deviation from the speed of light caused by how mass \n#interacts with space, which is what the scale is measuring.\n\n#in order to keep spped of light constant, to maintain the laws of \n#thermodynamics, time must increase, which increases the measurd weight of the \n#object. What the scale is meaduring is the distortion between mass and time,\n#such that adding weight increases the displacement of space\n\n#time is directly proportional to mass, as mass increases, so too does time",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Boltzman, thermodynamics\n\n#an ampere is an electrical current equivalent to 1019 elementary charges moving \n#every 1.602176634 seconds or 6.241509074×1018 elementary charges moving in a \n#second\n\n#It is a count, where therefore maintains a constant pressure\n\n\n#surface density = mass/area**2\n#t = area**2 / s\n#ans = mass/s\n\ndensity_surface = 151925611.698717 #np.sum(radial_mean)\nlog_density = np.log(151925611.698717)\napprox_e = (log_density/np.log(2))/10\n\nsign = []\ntotal = []\nlog = []\n\nfor j in range((50)):\n    for k in range(200):\n        if k % 2 == 0:\n            sign.append(-1)\n        else:\n            sign.append(1)\n\nfor l in range(1,45):\n    count.append(l)#(1*[l])\n    log.append(sign[l] / count[l-1])\n            \nnp.sum(log), np.log(2)\n\napprox_e",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Kinetic energy is the energy an object has because of its motion. If we want to \n#accelerate an object, then we must apply a force. Applying a force requires us \n#to do work. After work has been done, energy has been transferred to the object, \n#and the object will be moving with a new constant speed\n\n#pressure counts collisions\n#Temperature measures force of each collision\n\n#Avagadro's law tells us that as pressure increases (number of collisions \n#increase), the energy per collision must decrease to conserve energy (these are\n#the laws of thermodynamics) -- space and time\n\n#pressure measures distortion of space and mass -- number of molecules per unit\n#volume -- Avagadros Law\n\n#power_exp = 1/power\n#time = constant_Newton / constant_Myer #/ 100 #weight\n#work = power_exp * time\n\n#work = mass\n#power = work/time = mass/time\n\n# power kg⋅m2⋅s−3\n# work = joule kg⋅m2⋅s−2\n\n#Power is equal to work divided by time\n#work = force * displacement\n#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field\n\n#Energy per unit volume = work / unit volume = force per unit area = pressure \n#(stress)\n\n#power = mass*acceleration*displacement)/time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field\n\n#strain (eigen vector) = lapl transform mass time spectrum = Abel function\n\n#Strain represents the displacement between particles in the body relative to a \n#reference length\n\n#stress = magnetic flux density (tension)\n#pressure = stress\n\n#In order to maintain the laws of thermodynamics, the relationship between mass\n#and time must be inversely proportional to the relationship of space and time,\n#such that pressure remains equal to its initial value\n\n#voltage measures this relationship",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = 7.737628943087982 * (10**9)\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\n\npower = 143233305.53349283\ndiffusion = 778.859504122254\n#molec_power = power**2/np.pi\n#molar_power = constant_Avg/power/10\npower_exp = 1/power\n\ntime = constant_Newton / constant_Myer #/ 100 #weight\n\nwork = power_exp * time\n\nappr_mol = constant_Myer * diffusion #6026525841695.506 ##\n\nwork, appr_mol, appr_mol/work\n\n#Newton's constant measures how mass diffuses through time",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "execution_count": 3,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6.0221810734388e-07, 6026525841695.506, 1.0007214609132012e+19)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#The Faraday constant can be thought of as the conversion factor between the mole\n#(used in chemistry) and the coulomb (used in physics and in practical electrical \n#measurements) as the unit of electric charge (the physical property of matter \n#that causes charged matter to experience a force)\n\n#The elementary charge, usually denoted by e is the electric charge carried by a \n#single proton or, equivalently, the magnitude of the negative electric charge \n#carried by a single electron, which has charge −1 e\n\n#It is defined by the product of the elementary charge e and Avogadro constant\n\nconstant_Avg = (6.02214 * (10**23))\ncharge_elementary = (1.602176634 * (10**-19)) #C, the electric charge delivered\n#by a 1 ampere constant current in 1 second \nconstant_Myer = (7.737628943087982 * (10**9))\ncharge_Evan = (1 / constant_Myer**2)\n\nconst_Faraday = constant_Avg * charge_elementary\nconst_Evan = constant_Avg * charge_Evan\n\nconst_Faraday, const_Evan, const_Evan/const_Faraday, const_Faraday/const_Evan",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "execution_count": 4,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(96485.3199467676, 10058.54235185437, 0.1042494584399349, 9.592375969762635)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#In physics, a coupling constant or gauge coupling parameter (or, more simply, a \n#coupling), is a number that determines the strength of the force exerted in an \n#interaction. Originally, the coupling constant related the force acting between \n#two static bodies to the \"charges\" of the bodies (i.e. the electric charge for \n#electrostatic and the mass for Newtonian gravity) divided by the distance \n#squared\n\n#In another widely used convention, G is rescaled so that the coefficient of the \n#kinetic term is 1/4 and g appears in the covariant derivative. This should be \n#understood to be similar to a dimensionless version of the elementary charge \n#defined as\n\n#The renormalization group provides a formal way to derive the running of a \n#coupling, yet the phenomenology underlying that running can be understood \n#intuitively.[4] As explained in the introduction, the coupling constant sets the \n#magnitude of a force which behaves with distance as 1/r2. The 1/r2 dependence \n#was first explained by Faraday as the decrease of the force flux: at a point B \n#distant by r from the body A generating a force, this one is proportional to the field flux going through an elementary surface S perpendicular to the line AB. As the flux spreads uniformly through space, it decreases according to the solid angle sustaining the surface S. In the modern view of quantum field theory, the \n#1/r2 comes from the expression in position space of the propagator of the force \n#carriers",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Charge is the relationship between pressure (count) and time(energy) to maintain\n#constant speed(velocity), as more energy is added\n\n#In some other natural unit systems the unit of charge is defined as √ε0ħc, with \n#the result that e = √4πα √ε0ħc\n\n\n\nconstant_Myer = (7.737628943087982 * (10**-9))\nlghtsp = (3.0*(10**8))\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\nconstant_Planck = (6.62607015 * (10 ** 34))\n\nMyer_Structure_Constant = (constant_Myer**2) * (lghtsp * constant_Newton * constant_Planck)\nMyer_Structure_Constant1 = ((773762894.3087982**2) * (3.0*(10**-8)) * (6.67430  * (10 ** -11)) * (6.62607015 * (10 ** -34)))\ncharge_elementary = np.sqrt(4 * np.pi * Myer_Structure_Constant)\ncharge_elementary1 = np.sqrt(4 * np.pi * Myer_Structure_Constant1)\n\n\nMyer_Structure_Constant, charge_elementary, Myer_Structure_Constant1, charge_elementary1\n\n#In mathematics, the covariant derivative is a way of specifying a derivative \n#along tangent vectors of a manifold. Alternatively, the covariant derivative is \n#a way of introducing and working with a connection on a manifold by means of a \n#differential operator, to be contrasted with the approach given by a principal \n#connection on the frame bundle",
+      "metadata": {
+        "tags": []
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#In a non-Abelian gauge theory, the gauge coupling parameter, g, appears in the \n#Lagrangian as\n\n#1/4g * 2TrGμνGμν\n\n#(where G is the gauge field tensor)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#the electric field is the gradient of potential\n#Electric field is defined as the electric force per unit charge\n\nfield = (0.24285926167418542+0j) #np.sum(forcee)\nlghtsp = 3*(10**8)\n\npwr = field * lghtsp #F * V = F/charge*(displacement/time)\npower = np.sqrt(pwr)/(np.pi)/1000\n\n#pwr = e/charge\n\n#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Avagadro's law couples the force carrier (Evan) to the force field (Myer field),\n#such that mass/time = space/time and mass/time (weight) is constant (Myer \n#constant), such that a mole of Evan's (Ampere) is equal to one second to produce\n#a power equal to pi\n\npower = 143233305.53349283\nmolec_power = power**2/np.pi\nmolar_power = constant_Avg/power/10\npower_exp = 1/power\n\nmolar_power, molec_power",
+      "metadata": {
+        "tags": []
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#density * volume to get grams, * molecular mass to get moles, multiplied by \n#avogadro's number, to get total number of molecules\n\n\nconstant_Avg = (6.02 * (10**23))\npi = np.pi\ndensity = \nvolume = \n\nlength = 0.04**2\n\nconcentration = \n\n\n\n\n5 * (10**-6) = volume\nvolume * .895 = 4.48 * (10**-6)\n4.48 * (10**-6) / 282.47 = X\nX * constant_Avg\n5.235 * (10**-28)\nL = 8 * (10**-10)\nA = 6.5 * (10**-19)\nN = 9.55 * (10**15)\nD = A / N\npi = 6.2 * (10**-3) / (0.04**2)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Avogadro dictates the relationship between the volume of a gas to the number of\n#molecules the gas possesses\n\n#For an ideal gas, equal volumes of the gas contain the equal number of molecules (\n#or moles) at a constant temperature and pressure.\n\n#This is because mass distorts time -- This is what Newton said",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#f = mass * acceleration\nforce = 0.99985180253108 * 1.000183047293267\nforce\n\n#Buoyancy, or upthrust, is an upward force exerted by a fluid that opposes the \n#weight of a partially or fully immersed object. In a column of fluid, pressure \n#increases with depth as a result of the weight of the overlying fluid\n\nfield = (0.24285926167418542)#+0j) #np.sum(forcee)\nlghtsp = 3*(10**8)\n\npwr = field * lghtsp\npower = np.sqrt(pwr)/(np.pi)/1000\n\ndensity_surface = 151925611.698717 #np.sum(radial_mean)\nlog_density = np.log(151925611.698717)\ndensity_exp = (log_density/np.log(2))/10\n\n\nforce, power, density_exp, ((6.6743 * (10**11))/((7.737628943087982 * (10**9))*100)) * np.pi, np.e",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "execution_count": 6,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(1.0000348226972013, 2.7169903119812213, 2.717878985972256, 2.718281828459045)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#Throwing a ball up with an initial force of one Myer, results in a collision \n#with the earth in one second with the force of an Evan\n\n#size_of_earth = #lights\n#mass of earth = size_of_earth*constant_Myer*power\n#diffusion_constant = 778.859504122254\n#kinetic_field = 1.2415381784733333+0j #mon = strain, acceleration\n\n#time = diffusion_constant * kinetic_field",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#PV = nRT\n#V = nRT / P\n\npower = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\n\npwr_norm1 = power/np.pi\n\n#GG = 66996.86399999913\nII = -449643.7439999939\n\npwr_norm1/II*1000",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "execution_count": 3,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "-101397.11224825769"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#Speed of light to Newton's constant\n\nfield = (0.24285926167418542)#+0j) #np.sum(forcee)\nlghtsp = 3*(10**8)\n\npwr = field * lghtsp\npower = np.sqrt(pwr)/(np.pi)/1000\n\nconstant_Myer = (7.737628943087982 * (10**-9))\nlghtsp = (3.0*(10**8))\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\nconstant_Planck = (6.62607015 * (10 ** 34))\n\nMyer_Structure_Constant = (constant_Myer**2) * (lghtsp * constant_Newton * constant_Planck)\nMyer_Structure_Constant1 = ((773762894.3087982**2) * (3.0*(10**-8)) * (6.67430  * (10 ** -11)) * (6.62607015 * (10 ** -34)))\ncharge_elementary = np.sqrt(4 * np.pi * Myer_Structure_Constant)\ncharge_elementary1 = np.sqrt(4 * np.pi * Myer_Structure_Constant1)\n\nmoles_exp = (work)*charge_elementary1\nanswer = (6.02214 * (10**-23)) / moles_exp # ((work)*charge_elementary1)\ninv = (1/charge_elementary) * power\ninv_m = 1 / moles_exp\n\nanswer_i = (6.02214 * (10**23)) * (1/6.016697053565378)*(10**-23)\nmoles_exp, answer, inv, inv_m, answer_i",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Time measures the distortion of predicted and measured weight",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "np.e/np.pi,  (6.6743 * (10**11))/((7.737628943087982 * (10**9))*100), ((6.6743 * (10**11))/((7.737628943087982 * (10**9))*100)) * np.pi",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "execution_count": 3,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.8652559794322651, 0.8625769016698774, 2.7098652574423325)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Avg = (6.02214 * (10**23))\nconstant_Myer = 7.737628943087982 * (10**9)\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\ndiffusion = 778.859504122254\n\n#water = np.sqrt(((constant_Myer / (3.0 * (10**8)))*np.pi)) * 2\npower = 143233305.53349283\nmolec_power = power**2/np.pi\nmolar_power = constant_Avg/power/10\npower_exp = 1/power\n\ntime = constant_Newton / constant_Myer #/ 100 #weight\n\nwork = power_exp * time\n\nappr_mol = constant_Myer * diffusion #6026525841695.506 ##\n\npower_exp, molar_power, molec_power, appr_mol, time, work\n\n#density * volume to get grams, * molecular mass\n#g/ml * ml = g, * (mol/gram) = moles * (particles/mol) = particles",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "execution_count": 4,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6.9816164353350475e-09,\n 420442715998886.0,\n 6530375537582255.0,\n 6026525841695.506,\n 86.25769016698774,\n 6.0221810734388e-07)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = (7.737628943087982 * (10**-9))\nlghtsp = (3.0*(10**8))\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\nconstant_Planck = (6.62607015 * (10 ** 34))\n\nMyer_Structure_Constant = (constant_Myer**2) * (lghtsp * constant_Newton * constant_Planck)\nMyer_Structure_Constant1 = ((773762894.3087982**2) * (3.0*(10**-8)) * (6.67430  * (10 ** -11)) * (6.62607015 * (10 ** -34)))\ncharge_elementary = np.sqrt(4 * np.pi * Myer_Structure_Constant)\ncharge_elementary1 = np.sqrt(4 * np.pi * Myer_Structure_Constant1)\n\n\nMyer_Structure_Constant, charge_elementary, Myer_Structure_Constant1, charge_elementary1",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "execution_count": 5,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(7.943260518369791e+38,\n 9.99089363171491e+19,\n 7.943260518369792e-34,\n 9.990893631714911e-17)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "moles_exp = (work)*charge_elementary1\nanswer = (6.02214 * (10**-23)) / moles_exp # ((work)*charge_elementary1)\ninv = (1/charge_elementary) * power\ninv_m = 1 / moles_exp\n\nanswer_i = (6.02214 * (10**23)) * (1/6.016697053565378)*(10**-23)\nmoles_exp, answer, inv, inv_m, answer_i",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "execution_count": 10,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6.016697053565378e-23,\n 1.0009046402679351,\n 1.4336385794241231e-12,\n 1.6620414674317355e+22,\n 1.0009046402679351)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "(7.737628943087982 * (10**-20)), 7.737628943087982 * (10**20)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "execution_count": 34,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(7.737628943087982e-20, 7.737628943087982e+20)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "charge = current * time\n\nmoles = charge / constant_Avg\n\ninitial_mass = constant_Evan * moles\n\nmass = constant_Evan / initial_mass\n\nmass2 = initial_mass/constant_Evan\n\n\ncharge",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#spacetime distortion -- metric tensor\n#equivalent to Coulomb's constant / Farady's Constant\n#acceleration\n#constant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\n#force experienced from one object to another\n\ndensity_thr = np.e #mass / unit area (grams / mL)\ndensity_exp = (log_density/np.log(2))/10\n\narea_thr = np.pi\narea_exp = constant_Myer\n\ndensity_thr, density_exp, density_exp/density_thr",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "execution_count": 17,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(2.718281828459045, 2.717878985972256, 0.99985180253108)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#stress, energy, momentum tensor\n#mass\n#constant_Myer = 7.737628943087982 * (10**9)\n#a length, displacement, a length\n#force an object exerts",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Avg = (6.02214 * (10**23))\nconstant_Myer = 7.737628943087982 * (10**9)\n\nwater = np.sqrt(((constant_Myer / (3.0 * (10**8)))*np.pi)) * 2\npower = 143233305.53349283\n\nfield = (0.24285926167418542+0j) #np.sum(forcee)\nlghtsp = 3*(10**8)\n\npwr = field * lghtsp\n\npwr\n\na = power**2/np.pi\nb = power/np.sqrt(np.pi)\nc = constant_Avg/power\n\nnp.sqrt(pwr)/(np.pi)/1000, (pwr)/np.sqrt(np.pi)\n#1/c, pwr**2, pwr**2/c, c/pwr**2, np.sqrt(c/pwr**2)/np.sqrt(np.pi), np.sqrt(pwr**2/c)*np.sqrt(np.pi)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 55,
+      "outputs": [
+        {
+          "execution_count": 55,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "((2.7169903119812213+0j), (41105599.71140228+0j))"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "2.718281828459045 - 2.717878985972256, 2.7169903119812213 - 2.717878985972256",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 57,
+      "outputs": [
+        {
+          "execution_count": 57,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.00040284248678901236, -0.0008886739910347607)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "(b*(1.9915785722760848))*2",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "execution_count": 48,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "321881872.4008451"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#strain (eigen vector) = lapl transform mass time spectrum = Abel function\n\n#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field\n\n#Strain represents the displacement between particles in the body relative to a \n#reference length\n\n#stress = magnetic flux density (tension)\n#pressure = stress\n\nconstant_Myer = 7.737628943087982 * (10**9)\nconstant_Avg = (6.02214 * (10**23))\n\nke = 1.2415381784733333+0j #mon = strain\nfield = (0.24285926167418542+0j) #np.sum(forcee)\nlghtsp = 3*(10**8)\nEvan = constant_Myer**2\n\nforce = field\nvelocity = lghtsp\npower = force * velocity\n\npower2 = 143233305.53349283\n\n#power, power2/power, np.sqrt(power)/np.pi/1000, power/power2\nforce_tot = ke*constant_Myer\n\npower_tot = force_tot * lghtsp\n\n#constant_Avg/power_tot\n\nnp.sqrt(power_tot)/np.sqrt(np.pi)#power2/(field*constant_Myer)\n\n#the electric field is the gradient of potential\n#Electric field is defined as the electric force per unit charge\n\n#mass = np.sqrt((1 / (1 / intensity) * Newton's Constant / lghtsp)\n",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "execution_count": 38,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(957788636.6922469+0j)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#I = Q/t\n#Power is equal to work divided by time\n#ampere*t = const_F * numb moles(g*molar mass)\n\n#constant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\n#scale_con = 1 / (4 * np.pi * constant_Newton)\n#constant_Evan = ((1 / 7.737628943087982 * (10**-9))**2)\n#constant_Avg = (6.02214 * (10**23)) #count\n\n#time = work / power\n#time = charge / current\n\n#power * charge = current * work\n#power * charge = current * force * displacement\n#power * charge = current * mass * acceleration * displacement\n\npower = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\nlghtsp = 3*(10**8)\n\npower/lghtsp, power/lghtsp/np.pi, power/lghtsp*np.pi\n\n#const = constant_Avg / power",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "execution_count": 10,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.47744435177830946, 0.1519752572736474, 1.4999356680446778)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Avg = (6.02214 * (10**23))\nconstant_Myer = 7.737628943087982 * (10**9)\n\nwater = np.sqrt(((constant_Myer / (3.0 * (10**8)))*np.pi)) * 2\npower = 143233305.53349283\n\n\na = power**2/np.pi\nb = power/np.sqrt(np.pi)\nc = constant_Avg/power\n\nc, 1/c, c/a*water, b/a*water\n\n#water, constant_Myer / (3.0 * (10**8)), np.sqrt(constant_Myer / (3.0 * (10**8))), (constant_Myer / (3.0 * (10**8)))**2",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "execution_count": 12,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(4204427159988860.0,\n 2.378445295750229e-16,\n 11.59089390399733,\n 2.2278152680489858e-07)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "power = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\n\npower*.886226, power/.886226, power/.557",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "execution_count": 2,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(126937079.42972521, 161621646.77350116, 257151356.43355983)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "6530375537582255.0/4204427159988860.0, 4204427159988860**2/6530375537582255",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "execution_count": 8,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(1.5532140976844888, 2706920550268482.0)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.arctan(1.5532140976844888), np.tanh(1.5532140976844888)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "execution_count": 11,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.9987734308173802, 0.91431424884729)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#Circumference of a circle\n\n#Quantum Gravitational Dynamics\n\n#Power is equal to work divided by time\n#work = force * displacement\n#ampere*t = const_F * numb moles(g*molar mass)\n\nconstant_Avg = (6.02214 * (10**23)) #count\n\nconstant_Myer = 7.737628943087982 * (10**9)\ncovder = 9871850.516235352\n\npower = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\n\nlength = power**2/np.pi #m**2*a**2*d**2 / (t**2)\n\ncurrent = 7.737628943087982 * (10**9)\ntime = 778.859504122254 #constant, diffusion\n\ncharge = current * time\n\n#const = constant_Avg / length\n\nconst = constant_Avg / power\n\n\nlength, const, charge/power, const/constant_Myer, constant_Myer/const, constant_Myer**2/const, const/covder",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "execution_count": 3,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6530375537582255.0,\n 4204427159988860.0,\n 42074.89186435273,\n 543374.099599939,\n 1.8403527159948428e-06,\n 14239.966440772274,\n 425900610.33381873)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.tan(83.90642324627159), np.tanh(83.9), np.arctan(83.90642324627159), 1/-1.303982666909899, 1/1.5588788523179924",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "execution_count": 15,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(-1.303982666909899,\n 1.0,\n 1.5588788523179924,\n -0.7668813592206258,\n 0.6414866674937817)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#The amount of mass (Myer constant)determines length of spacetime (Newton), \n#amount of spacetime determines how much mass",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#mole = (charge / farady) * mass, force, torque (diffusion)\n#mole = pressure, weight,displacement (work)",
+      "metadata": {
+        "tags": []
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#ampere*time = charge\n#sqr root of pressure * calc time = mole of charge\n\n#ampere*t = const_F * numb moles(g*molar mass)\n\nTime1 = 6530375537582255.0 #np.sum(intensity)**2 / np.pi kg⋅m2⋅s−3\nTime2 = 6026525841695.506 ##constant_Myer * constant",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#an ampere is an electrical current equivalent to 1019 elementary charges moving \n#every 1.602176634 seconds or 6.241509074×1018 elementary charges moving in a \n#second\n\nconstant_elec = (1.602176634 * (10**-19)) #Columbs, electric charge delivered by \n#a 1 ampere constant current in 1 second\nconstant_Myer = 7.737628943087982 * (10**9) #/ 10 #m**3 / s**2\nconstant_Evan = ((1 / 7.737628943087982 * (10**-9))**2)\n\ncharge = 1 / constant_elec\nEvan = constant_Myer**2\ntime = 1\n\n#1 / constant_elec, constant_Myer**2, (constant_Myer**2)/(1 / constant_elec) #1 / constant_elec\n\nampere = charge * time\nmyer = Evan * time\n\nampere, myer, 1/Evan, constant_Evan",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "execution_count": 14,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6.241509074460762e+18,\n 5.9870901660912845e+19,\n 1.670260464196178e-20,\n 1.6702604641961785e-20)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#The Faraday constant can be thought of as the conversion factor between the mole\n#(used in chemistry) and the coulomb (used in physics and in practical electrical \n#measurements) as the unit of electric charge the physical property of matter \n#that causes charged matter to experience a force\n\nconstant_Avg = (6.02214 * (10**23)) #count\nconstant_Myer = 7.737628943087982 * (10**9)\ncovder = 9871850.516235352 / 1000\n\nmol_pow = 4204427159988860\n\nEvan = constant_Myer**2\nE = 1 / Evan\nEv = constant_Avg / (1 / E)\n\nEv, covder/Ev, mol_pow/E, mol_pow/constant_Myer/79432.60518369792/np.e",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "execution_count": 8,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(10058.54235185437,\n 0.9814394741217548,\n 2.517228450361641e+35,\n 2.5165504725115855)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "Myer_Structure_Constant = ((773762894.3087982**2) * (3.0*(10**8)) * (6.67430  * (10 ** 11)) * (6.62607015 * (10 ** -34)))\nMyer_Structure_Constant2 = ((1*(773762894.3087982**2)) * (3.0*(10**-8)) * (6.67430  * (10 ** -11)) * (6.62607015 * (10 ** 34)))\n\n\ncovder = 9871850.516235352 / 1000 #divergencefield(radial_mean)\ncharge_elementary = np.sqrt(4 * np.pi * 79432.60518369792)# / 1000#Myer_Structure_Constant)\ncharge_elementary2 = np.sqrt(4 * np.pi * Myer_Structure_Constant2)\n\n\ncharge_elementary2, Myer_Structure_Constant",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "execution_count": 2,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(9.990893631714911e+17, 79432.60518369792)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#I = Q/t, where I is the current in amperes, Q is the charge in coulombs, and t is \n#the time in seconds\n\nconstant_Avg = (6.02214 * (10**23)) #count\nconstant_Myer = 7.737628943087982 * (10**9)\nconstant_Evan = constant_Myer**2\nconstant_Evan = ((1 / 7.737628943087982 * (10**-9))**2)\n\n#I * t = q\n\ncurrent = 7.737628943087982 * (10**9)\ntime = 778.859504122254 #constant, diffusion\n\ncharge = current * time\n\nmoles = charge / constant_Avg\n\ninitial_mass = constant_Evan * moles\n\nmass = constant_Evan / initial_mass\n\nmass2 = initial_mass/constant_Evan\n\n\ncharge, moles, initial_mass, mass, mass/charge_elementary/100000000, mass/charge_elementary2",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 58,
+      "outputs": [
+        {
+          "execution_count": 58,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6026525841695.506,\n 1.0007282862396933e-11,\n 1.6714768919089562e-31,\n 99927224377.51512,\n 1.000183047293267,\n 1.0001830472932668e-07)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "9871850.516235352 / 599145048.1475052, 79432.60518369792 / 599145048.1475052",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "execution_count": 41,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.016476561972360613, 0.00013257658630292507)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#I = Q/t, where I is the current in amperes, Q is the charge in coulombs, and t is \n#the time in seconds\n\nconstant_Avg = (6.02214 * (10**23))\nconstant_Myer = 7.737628943087982 * (10**9)\n\ncovder = 9871850.516235352\nmsc = 79432.60518369792\n\nQ = 7.737628943087982 * (10**9)\nt = 778.859504122254 #constant, diffusion\n\ndiffusion = 778.859504122254 #constant #m**2/s\nmoles = constant_Myer * diffusion #m**5 / s**3\n\n\ncurrent = Q * t\ncurrent1 = Q/t\n\n#current, Evan, Evan/current, Evan/current/covder, Ev/diffusion, current1, current1 / covder\n#current * 1000, 9.990893631714911e+17 /  (constant_Avg / current * 10000000), moles, moles/constant_Avg\n#current, current/Ev, current*Ev\ncurrent, covder / (current/constant_Avg * myer), msc/ (current/constant_Avg * myer)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "ename": "<class 'NameError'>",
+          "evalue": "name 'myer' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "Cell \u001b[0;32mIn [8], line 23\u001b[0m\n\u001b[1;32m     18\u001b[0m current1 \u001b[38;5;241m=\u001b[39m Q\u001b[38;5;241m/\u001b[39mt\n\u001b[1;32m     20\u001b[0m \u001b[38;5;66;03m#current, Evan, Evan/current, Evan/current/covder, Ev/diffusion, current1, current1 / covder\u001b[39;00m\n\u001b[1;32m     21\u001b[0m \u001b[38;5;66;03m#current * 1000, 9.990893631714911e+17 /  (constant_Avg / current * 10000000), moles, moles/constant_Avg\u001b[39;00m\n\u001b[1;32m     22\u001b[0m \u001b[38;5;66;03m#current, current/Ev, current*Ev\u001b[39;00m\n\u001b[0;32m---> 23\u001b[0m current, covder \u001b[38;5;241m/\u001b[39m (current\u001b[38;5;241m/\u001b[39mconstant_Avg \u001b[38;5;241m*\u001b[39m \u001b[43mmyer\u001b[49m), msc\u001b[38;5;241m/\u001b[39m (current\u001b[38;5;241m/\u001b[39mconstant_Avg \u001b[38;5;241m*\u001b[39m myer)\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'myer' is not defined"
+          ],
+          "output_type": "error"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#The Faraday constant can be thought of as the conversion factor between the mole\n#(used in chemistry) and the coulomb (used in physics and in practical electrical \n#measurements)\n\nconstant_Avg = (6.02214 * (10**23)) #count\n\nconstant_elec = (1.602176634 * (10**-19)) #Columbs, electric charge delivered by \n#a 1 ampere constant current in 1 second\n\nconstant_Ampere = (6.241509074 * (10**18)) #electrons worth of charge moving past\n#a point per second\n\nF = constant_Avg / (1 / constant_elec)\n\nMyer_Structure_Constant = ((773762894.3087982**2) * (3.0*(10**8)) * (6.67430  * (10 ** 11)) * (6.62607015 * (10 ** -34)))\n\ncovder = 9871850.516235352 / 1000 #divergencefield(radial_mean)\ncharge = np.sqrt(4 * np.pi * 79432.60518369792) / 1000#Myer_Structure_Constant)\n\nF, F/(covder), F/(9871850.516235352/10), F/79432.60518369792, 79432.60518369792/F",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "execution_count": 9,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(96485.3199467676,\n 9.773782513023956,\n 0.09773782513023957,\n 1.214681549517772,\n 0.8232610435195953)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = 7.737628943087982 * (10**9) #m**3 / s**2\n\ndiffusion = 778.859504122254 #constant #m**2/s\n\nmoles = constant_Myer * diffusion #m**5 / s**3\n\n#Time2 = 6026525841695.506 ##constant_Myer * constant\n\nforce_mol = constant_Myer**2/constant_Avg\n\nmoles, moles/constant_Avg, Far, 9871850.516235352*Far/100",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "execution_count": 14,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6026525841695.506,\n 1.0007282862396933e-11,\n 9.941798374151522e-05,\n 9.814394741217548)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "moles * 100000000000 / constant_Avg",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "execution_count": 27,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "1.0007282862396933"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#strain (eigen vector) = lapl transform mass time spectrum = Abel function\n\n#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field\n\n#Strain represents the displacement between particles in the body relative to a \n#reference length\n\n#stress = magnetic flux density (tension)\n#pressure = stress\n\nke = 1.2415381784733333+0j #mon = strain\n\n#velocity = 2*ke / m\n#displacement =\n#time = current * ampere\n\n#1 km = \n#1 sec = ",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#orbital velocity, acceleration",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Surface density is equivalent to velocity distribution",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#surface density = mass/area**2\n#t = area**2 / s\n#ans = mass/s\n\nt = 778.859504122254\ndensity_surface = 151925611.698717 #np.sum(radial_mean)\nlog_density = np.log(151925611.698717)\napprox_e = (log_density/np.log(2))/10\n\ndensity_surface/t, log_density/t, approx_e/t",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "execution_count": 6,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(195061.63935167177, 0.024187804684400266, 0.0034895625868175107)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#https://en.wikipedia.org/wiki/Maxwell–Boltzmann_distribution\n\n#M is the expected number of particles in the single-particle microstate i,\n#I is the total number of particles in the system\n\n#Ei is the energy of microstate i, the sum over index j takes into account all microstates,\n#T is the equilibrium temperature of the system,\n\n-log(M/I) = E / T\n\n#orbital velocity is the sequence of an integrand\n#orbital velocity, acceleration (change in orbital spoed over space and time) and\n#displacement",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Boltz = (1.380649 * (10**(-23))) #(J⋅K−1)\nconstant_Avg = (6.0221408 * (10**23)) #count\nideal_gas_constant = constant_Boltz*constant_Avg #J / mol * K\n\n# power kg⋅m2⋅s−3\n# work = joule kg⋅m2⋅s−2\n\n#Power is equal to work divided by time\n#work = force * displacement\n#voltage, is the external work needed to bring a charge from one location to \n#another location in an electric field\n\n#power = mass*acceleration*displacement)/time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Quantum Gravitational Dynamics\n\n#Power is equal to work divided by time\n#work = force * displacement\n\npower = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\n\npwr_norm1 = power/np.pi\npwr_norm2 = power/np.sqrt(np.pi)\n\n#Electric potential difference, also known as voltage, is the external work \n#needed to bring a charge from one location to another location in an electric \n#field\n\n#the electric field is the gradient of potential\n#Electric field is defined as the electric force per unit charge\n\n#E = m * c**2\n#m = c**2 / E\n\neng = (7.737628943087982 * (10**9))**2 #constant_Myer**2\nlghtspsq = (3 * (10**8))**2\nmass1 = eng / lghtspsq\nmass2 = 151925611.698717 #np.sum(radial_mean) density_surface\n\n\nforce_per_Evan = (0.24285926167418542+0j)\nforce_Rie = (-0.09739979420962054+0j)\ntotal_Evan = constant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\n\nforce_per_Evan / force_Rie, mass, force_per_Evan/mass, mass/force_per_Evan\n\npwr_norm1, pwr_norm2, power**2, power**2/np.pi",
+      "metadata": {
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "execution_count": 8,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(45592577.182094224,\n 80810738.99910986,\n 2.0515779814050908e+16,\n 6530375537582255.0)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#Time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "Time1 = 6530375537582255.0 #np.sum(intensity)**2 / np.pi kg⋅m2⋅s−3\nTime2 = 6026525841695.506 ##constant_Myer * constant",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = 7.737628943087982 * (10**9)\n\nwater = np.sqrt(((constant_Myer / (3.0 * (10**8)))*np.pi)) * 2\n\nwater",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "execution_count": 4,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "18.003139816453853"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#I = Q/t, where I is the current in amperes, Q is the charge in coulombs, and t is \n#the time in seconds\n\nQ = 7.737628943087982 * (10**9)\nt = 778.859504122254 #constant\ncurrent = Q * t\ncurrent * 1000, 9.990893631714911e+17 /  (constant_Avg / current * 10000000)\n\n#the Laplacian of the gravitational potential due to a given mass density \n#distribution is a constant multiple of that density distribution\n\n# coulomb kg⋅m³⋅s⁻⁴⋅A⁻²\n# vacuum permititivity kg·m·s-2·A-2\n# power kg⋅m2⋅s−3\n# Newton's Constant m3⋅kg−1⋅s−2\n# work = joule kg⋅m2⋅s−2\n\n#mass = np.sqrt((1 / (1 / intensity) * Newton's Constant / lghtsp)\n\n#Biot–Savart law is an equation describing the magnetic field generated by a \n#constant electric current\n\nB = (mu*T*I) / R\n\nB = magnetic field intensit\nmu = permeability of free space\nPermitivity1 = np.sqrt(4 * np.pi * 79432.60518369792) / 1000\nPermitivity2 = constant_Newton\n\nT = number of turns\nI = current intensity\nconstant_Myer = (7.737628943087982 * (10**9))\n\nR = radius\n\n#Suppose that a magnetic medium has a constant permeability u and conductivity o. \n#Starting from Ampère's equation for B and Ohm's law in terms of J. o and E, show \n#that 7'H = 0.\n#Hint: recall that W x E = 0 in electrostatics. Write out your expression for \n#the laplacian of H in cartesian coordinates.",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#orbital velocity is the sequence of an integrand\n#orbital velocity, acceleration (change in orbital spoed over space and time) and\n#displacement",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#power**2/np.pi = 6530375537582255\n\n#1.602176634×10−19 C (coulomb),[6][9] which means an ampere is an electrical \n#current equivalent to 1019 elementary charges moving every 1.602176634 seconds \n#or 6.241509074×1018 elementary charges moving in a second\n\nt = 778.859504122254 #constant #m**2/s\ncount = constant_Myer\n\n\ncurrent = count * t #m**4 / s**3\n\nconstant_Myer = (7.737628943087982 * (10**9))\nMyer = constant_Myer**2\ncoulomb = 1.602176634 * (10 ** -19)\nlghtsp = 3 * (10**8)\n\nMyer, 1 / (Myer * coulomb), constant_Myer/lghtsp\n\n",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#State Variables",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#In order for a litre to have a volume of 1, 1 mole of Myer particles equates to\n#1 gram at a pressure of 1 kPa",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "GG = 66996.86399999913\nII = -449643.7439999939\n\npwr_norm1/GG, pwr_norm2/GG, power**2/GG, power**2/np.pi/GG, pwr_norm1/II, pwr_norm2/II, power**2/II, power**2/np.pi/II",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "execution_count": 9,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(680.5180789073174,\n 1206.1868895700986,\n 306220001790.69836,\n 97472853917.19737,\n -101.39711224825768,\n -179.7217020751232,\n -45626743589.36747,\n -14523443558.86856)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "power = 143233305.53349283 #np.sum(intensity) kg⋅m2⋅s−3\nconstant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\npower_sq = power**2/np.pi #kg**2⋅m**4⋅s−6\n\nmass_per_second = power/constant_Myer\n\nmass_per_second, np.sqrt(mass_per_second), mass_per_second/np.pi, np.sqrt(mass_per_second)/np.sqrt(np.pi)\n\n#surface density = mass/area**2\n#t = area**2 / s\n#ans = mass/s\n\n#kg_per_s, density_surface/t/kg_per_s, log_density/t/kg_per_s, approx_e/t/kg_per_s",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "execution_count": 15,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.01851126573618434,\n 0.1360561124543265,\n 0.005892318889602742,\n 0.07676144142473317)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\n\nnp.e*2, np.pi/np.e, np.e/np.pi, constant_Newton/constant_Myer/100, (constant_Newton/constant_Myer/100)/(np.e/np.pi)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "execution_count": 16,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(5.43656365691809,\n 1.1557273497909217,\n 0.8652559794322651,\n 0.8625769016698774,\n 0.996903716557792)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#the pressure is assumed to be equal to the force (per unit area) exerted by the \n#atoms hitting and rebounding from the gas container's surface\n\n#Energy per unit volume = work / unit volume = force per unit area = pressure \n#(stress)\n\n# power kg⋅m2⋅s−3\n# work = joule kg⋅m2⋅s−2\n\n#the electric field is the gradient of potential\n#Electric field is defined as the electric force per unit charge\n\n\n#E = m * c**2\n#m = c**2 / E\n\neng = (7.737628943087982 * (10**9))**2 #constant_Myer**2\nlghtspsq = (3 * (10**8))**2\nmass1 = eng / lghtspsq\nmass2 = 151925611.698717 #np.sum(radial_mean) density_surface\n\n\nforce_per_Evan = (0.24285926167418542+0j)\nforce_Rie = (-0.09739979420962054+0j)\ntotal_Evan = constant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\n\nforce_per_Evan / force_Rie, mass, force_per_Evan/mass, mass/force_per_Evan",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "execution_count": 10,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "((-2.4934268459696325-0j),\n 665.2322406768094,\n (0.00036507440082443935+0j),\n (2739.167681277357+0j))"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\nconstant_Newton = (6.6743 * (10**11)) #m3⋅kg−1⋅s−2\n\nanswer = (5.97219 * 10**24) #kilograms\nmass_Newton = answer * (6.6743 * (10**-11))\nden_Newton = mass_Newton / (3.0 * (10**8))\nden_Myer = den_Newton * (constant_Myer / constant_Newton) * constant_Myer\ndiam = (den_Myer / (3.0 * (10**8))) / 10\nrad_Earth = diam / (2 * np.pi)\nrad_Earth, ((rad_Earth - 6371) / rad_Earth) * 100",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "execution_count": 7,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6323.056127133385, -0.7582389259661747)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#gamma(1/77.14750000000001)\n\n#mass per unit area\ndensity_surface = 151925611.698717 #np.sum(radial_mean)\nlog_density = np.log(151925611.698717)\napprox_e = (log_density/np.log(2))/10\n(log_density/np.log(2))/10, np.e, np.log(np.e), np.log(np.pi), approx_e/np.e\n\n#The logarithmic connection between entropy and probability was also first stated by Boltzmann.",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "execution_count": 11,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(2.717878985972256,\n 2.718281828459045,\n 1.0,\n 1.1447298858494002,\n 0.99985180253108)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#In another widely used convention, G is rescaled so that the coefficient of \n#the kinetic term is 1/4 and g appears in the covariant derivative. This should \n#be understood to be similar to a dimensionless version of the elementary charge \n#defined as\n\nMyer_Structure_Constant = ((773762894.3087982**2) * (3.0*(10**8)) * (6.67430  * (10 ** 11)) * (6.62607015 * (10 ** -34)))\n\ncovder = 9871850.516235352 / 1000 #divergencefield(radial_mean)\ncharge = np.sqrt(4 * np.pi * 79432.60518369792) / 1000#Myer_Structure_Constant)\n\nMyer_Structure_Constant, charge, 987185.0516235352 / Myer_Structure_Constant",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "execution_count": 5,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(79432.60518369792, 0.9990893631714911, 12.42795762949667)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#a scale parameter measuring speeds in units proportional to the square root of \n#T/m (the ratio of temperature and particle mass\n\nconstant_Boltz = (1.380649 * (10**(-23))) #(J⋅K−1)\nconstant_Avg = (6.0221408 * (10**23)) #count\nideal_gas_constant = constant_Boltz*constant_Avg\n\nparamer_scale = 77.14750000000001\ntemp_over_mass = paramer_scale ** 2\n\ntemp_over_mass, temp_over_mass/constant_Boltz, constant_Boltz*constant_Avg",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "execution_count": 7,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(5951.736756250001, 4.310825384474983e+26, 8.3144626733792)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#https://en.wikipedia.org/wiki/Maxwell–Boltzmann_distribution\n\nconstant_Avg = (6.0221408 * (10**23)) #count\nconstant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2, \nlghtsp = 3 * (10**8)\n\nt = 778.859504122254 #constant #m**2/s\ncount = constant_Myer\n\n\ncurrent = count * t #m**4 / s**3\ncurrent2 = count / t #m / s\n\nmoles = current / constant_Avg\n\nconstant = current2 / lghtsp\n\ncurrent, current2, moles, constant",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "execution_count": 2,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(6026525841695.506,\n 9934563.168498542,\n 1.000728153299821e-11,\n 0.033115210561661806)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "PV = nRT\nP = pressure\n\na = 498435972.7185986\n\nb = 498272878.54749364\n\npressure = a/b\n\n",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#stress energy tensor\n\nflux = 143233305.53349283 #np.sum(intensity)\nvelocity = 151925611.698717 #np.sum(radial_mean)\nvelocity2 = eig_vec2\nvelocity3 = np.sqrt(diffusivity * (np.sum(radial_mean)))\ndensity = (0.030762591371004892+0j) #np.sum(density)\nacceleration = 2.8601173622066867 #divergence intensity / divergence radial mean\nforce = (-0.01567520579414322+0j) #np.sum(field)\nforce2(mass) = 8795519697.65625 #np.sum(galaxy)\n\n#np.sum(intensity)/np.sum(radial_mea\n#Energy per unit volume = work / unit volume = forc3 per unit area = pressure (stress)\n\navg_energy = boltzman\nwork = force*displacement = force*least action\nheat capacitance = specific heat*temperature = velocity\nstress = magnetic flux density (tension)\npressure = stress\npower = work/time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "Entropy = 7.737628943087982 * (10**9) * np.log(7.737628943087982 * (10**9)) # np.sum(galaxy) * np.log(np.sum(galaxy))\nPermitivity1 = np.sqrt(4 * np.pi * 79432.60518369792) / 1000\nPermitivity2 = constant_Newton\nwater = np.sqrt(((constant_Myer / (3.0 * (10**8)))*np.pi)) * 2\n\nEntropy, Permitivity1, water, Permitivity2",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "orbvlc = 70810193.12270346+4.324808029379932e-10j\npower = 143233305.53349283 #np.sum(intensity)\ntotalvelocity = power / 18.538527095782605\n\nconv = 7737628943.087982\npoisson = conv * 4 * np.pi\ndl = 449643.7439999939 #np.sum(II)\npt = 66996.86399999913 #np.sum(GG)\npoisson / dl, poisson / pt\nG = poisson / dl\nG\nintg = .10369036258167048 #pss\nfield = G * intg\nfield\npt/field, totalvelocity",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "execution_count": 4,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(2.9879056087427323, 7726250.569608493)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "boundary = 241137213.2812501+7.921929103235165e-07j\nGG = 3976.2265625\n\nboundary/GG/np.pi",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "execution_count": 5,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(19303.819263752324+6.341762250140505e-11j)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "rad_mean = []\n\nfor i in range(80):\n    rad_mean.append(log_rad[i])\n    \nlog_rad\n    \nlen(rad_mean)\n\nplt.plot(rad_mean)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "a = 79432.60518369792\nb = 25284.183515304867\nc = 1795853940350.7769-6643354926671.666j\nd = 70810193.12270346+4.324808029379932e-10j\ne = 2820920772963.1416-10435357516410.633j\nf = 22539584.513539977+1.3766291515986703e-10j\ng = np.pi\n\na/g, b/g, c/g, d/g, e/g, f/g",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "execution_count": 9,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(25284.183515304867,\n 8048.205577006769,\n (571638063355.7678-2114645550587.383j),\n (22539584.513539977+1.3766291515986703e-10j),\n (897926970175.3884-3321677463335.833j),\n (7174572.581134841+4.3819466856266104e-11j))"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:\n#applications-of-thermodynamics/x2eef969c74e0d802:electrolysis-and-faraday-s-law/\n#v/quantitative-electrolysis-ap\n\n#https://www.chegg.com/homework-help/questions-and-answers/\n#vector-laplace-equation-h-suppose-magnetic-medium-constant-permeability-mu-\n#conductivity-si-q4703156\n\nconstant_Avg = (6.0221408 * (10**23))\n\n\n\n#I = Q/t, where I is the current in amperes, Q is the charge in coulombs, and t is \n#the time in seconds\n\nQ = 7.737628943087982 * (10**9)\nt = 778.859504122254 #constant\ncurrent = Q * t\ncurrent * 1000, 9.990893631714911e+17 /  (constant_Avg / current * 10000000)\n\n#the Laplacian of the gravitational potential due to a given mass density \n#distribution is a constant multiple of that density distribution\n\n# coulomb kg⋅m³⋅s⁻⁴⋅A⁻²\n# vacuum permititivity kg·m·s-2·A-2\n# power kg⋅m2⋅s−3\n# Newton's Constant m3⋅kg−1⋅s−2\n# work = joule kg⋅m2⋅s−2\n\n#mass = np.sqrt((1 / (1 / intensity) * Newton's Constant / lghtsp)\n\n#Biot–Savart law is an equation describing the magnetic field generated by a \n#constant electric current\n\nB = (mu*T*I) / R\n\nB = magnetic field intensit\nmu = permeability of free space\nPermitivity1 = np.sqrt(4 * np.pi * 79432.60518369792) / 1000\nPermitivity2 = constant_Newton\n\nT = number of turns\nI = current intensity\nconstant_Myer = (7.737628943087982 * (10**9))\n\nR = radius\n\n#Suppose that a magnetic medium has a constant permeability u and conductivity o. \n#Starting from Ampère's equation for B and Ohm's law in terms of J. o and E, show \n#that 7'H = 0.\n#Hint: recall that W x E = 0 in electrostatics. Write out your expression for \n#the laplacian of H in cartesian coordinates.",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "execution_count": 10,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(79432.60518369792, 0.9990893631714911)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#Quantum Gravitational Dynamics\n\n#Power is equal to work divided by time\n#work = force * displacement\n\nconstant_Myer = (7.737628943087982 * (10**9)) #m**3/s**2\nMyer_paricle_mass = constant_Myer\n\npower_flux= 143233305.53349283 #np.sum(intensity)\ntime = 1.5708623136179358 #Time\ntime2 = 0.0018129311137857003 #solution to pendulum\ntime3 = 778.859504122254 #constant\n\nmass = 0\nacceleration = 2.8601173622066867 #divergence intensity / divergence radial mean\ndisplacement = 0\n\nforce = (-0.01567520579414322+0j) #np.sum(field)\n\n\nmass2 = force / acceleration\n#force2 = mass * acceleration\n\nwork1 = power_flux * time\nwork3 = power_flux * time2\nwork4 = power_flux * time3\n#work2 = force * displacement\n\ndisplacement2 = work4 / force\n\ninertia = Myer_paricle_mass / displacement2\n\n\n#diff_w = work2 / work1\n\nwork4, displacement2, inertia",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "acceleration = 2.8601173622066867 #(-1.6963764826789323)\nmass = 8795519697.65625 #np.sum(galaxy) = force2(mass) \nforce_g = mass * acceleration\ntime = 778.859504122254 #constant\n\n\nforce = (-0.01567520579414322+0j) #np.sum(field)\nmass2 = force / acceleration\n\n#force2(mass) = 8795519697.65625 #np.sum(galaxy)\nforce_k = 7.347215471732027 #np.sum(kinetic)\n\n\nforce_g, force*1000/force_k, time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#period time = 4 * (np.sqrt(L/g) * (np.sum(totl)+1)*(np.pi/2))\n##general solution = A(np.sin(y0)*np.cos(w0-t)-np.cos(y0)*np.sin(w0-t))\ng = 77376289430.87982 #Myer_Constant\ng2 = 7.347215471732027+0j #np.sum(kinetic)\nresid = 1.5759240156032317 #time\nL = len(GG)**2\ntime = 4 * (np.sqrt(L/g) * resid)\nforce = 7.347215471732027 #np.sum(kinetic)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#If φ denotes the electrostatic potential associated to a charge distribution q, \n#then the charge distribution itself is given by the negative of the Laplacian of \n#φ:\n\n#φ = eign_motion\n\n#q = −ε0Δφ\n\n#where ε0 is the electric constant = constant_Newton\n\n#The same approach implies that the negative of the Laplacian of the \n#gravitational potential is the mass distribution = galaxy\n\n#Finding the potential function subject to suitable boundary conditions is \n#equivalent to solving Poisson's equation\n\n#=solve_heat_equation\n\n#Another motivation for the Laplacian appearing in physics is that solutions to \n#Δf = 0 in a region U are functions that make the Dirichlet energy functional \n#stationary:\n\n#E(f)=.5∫U‖∇f‖2dx = intg = lambda galaxy: galaxy #integrate.quad(intg, 0, np.inf)\n\n#The Laplacian also can be generalized to an elliptic operator called the \n#Laplace–Beltrami operator defined on a Riemannian manifold. The Laplace–Beltrami \n#operator, when applied to a function, is the trace (tr) of the function's \n#Hessian:\n\n#Δf=tr(H(f)) = Epotential = np.mat(np.diag(potential, 0))\n\n#where the trace is taken with respect to the inverse of the metric tensor",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "constant_Avg = (6.02 * (10**23))\n5 * (10**-6) = volume\nvolume * .895 = 4.48 * (10**-6)\n4.48 * (10**-6) / 282.47 = X\nX * constant_Avg\n5.235 * (10**-28)\nL = 8 * (10**-10)\nA = 6.5 * (10**-19)\nN = 9.55 * (10**15)\nD = A / N\npi = 6.2 * (10**-3) / (0.04**2)\n\n\ncritical temperature = (((n / zeta)**(2/3)) * ((2*np.pi*hbar**2) / (m * kb)))\n\nTc = #is the critical temperature,\nn = #the particle density,\nm = #mass per boson,\nhbar\nkB #the Boltzmann constant \nzeta 3/2 Riemann zeta function; 2.6124",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#stress energy tensor\n\nflux = 143233305.53349283 #np.sum(intensity)\nvelocity = 151925611.698717 #np.sum(radial_mean)\nvelocity2 = eig_vec2\nvelocity3 = np.sqrt(diffusivity * (np.sum(radial_mean)))\ndensity = (0.030762591371004892+0j) #np.sum(density)\nacceleration = 2.8601173622066867 #divergence intensity / divergence radial mean\nforce = (-0.01567520579414322+0j) #np.sum(field)\nforce2(mass) = 8795519697.65625 #np.sum(galaxy)\n\n#np.sum(intensity)/np.sum(radial_mea\n#Energy per unit volume = work / unit volume = forc3 per unit area = pressure (stress)\n\navg_energy = boltzman\nwork = force*displacement = force*least action\nheat capacitance = specific heat*temperature = velocity\nstress = magnetic flux density (tension)\npressure = stress\npower = work/time",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "#Rotation curve\n\n70810193.12270346+4.324808029379932e-10j #np.sum(fourier_inten)\n\n#Surface density\ndensity_surface = 151925611.698717 #np.sum(radial_mean)\n\na = 498435972.7185986\n\nb = 498272878.54749364\n\npressure = a/b\n\npressure",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "execution_count": 2,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "1.0003273189814794"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "def elliptic_intg(w,arg):\n    return (1 / (np.sqrt((1 - (arg**2*(np.sin(w)**2))))))\n\ndef Bessel(w,arg):\n    return (np.cos(arg*np.cos(w)) * (np.e * (np.log(2 * x * (np.sin(w)**2)))))\n\ndef poisson(theta,arg):\n    return ((1 - arg**2) / (1 - (2 * arg * np.cos(theta) + arg**2)))\n\ndef intg(theta,arg):\n    return (((1 - arg**2) / (1 - (2 * arg * np.cos(theta - arg) + arg**2))) * (np.cos(theta)))\n\n\n\nx = 1 / 77.14750000000001\n\n#arg = x\narg = .1\n\n#integrate.quad(elliptic_intg, 0, (np.pi/2), args=(arg)), integrate.quad(f, 0, np.inf, args=b), integrate.quad(g, 0, np.inf, args=c), integrate.quad(ellipticg, 0, length, args=(beta,alpha))\n#intgr = integrate.quad(Bessel, 0, (np.pi/2), args=(arg)) \npss = integrate.quad(intg, (-np.pi), (np.pi), args=(arg)) \npss\n\n.651505762669276/(2 * np.pi)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "execution_count": 15,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0.10369036258167048"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "def intg(theta,param):\n    return (((1 - param**2) / (1 - (2 * param * np.cos(theta - param) + param**2))) * (np.cos(theta)))\n\n\ndef intgr(theta,param):\n    return (((1 - param**2) / (1 - (2 * param * np.cos(theta - param) + param**2))) * (np.cos(theta)))\n\n\nparam = np.linspace(-10,10,10)\nans=[]\n\nfor i in range(len(param)):\n    ans.append(integrate.quad(intgr, 0, np.inf, param[i]))\n\n\nplot = np.array(ans)[:,0]\n\nplt.plot(plot)\nplt.show()\nans[0]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "name": "stderr",
+          "text": "<ipython-input-7-8752b7c868ed>:13: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.\n  If increasing the limit yields no improvement it is advised to analyze \n  the integrand in order to determine the difficulties.  If the position of a \n  local difficulty can be determined (singularity, discontinuity) one will \n  probably gain from splitting up the interval and calling the integrator \n  on the subranges.  Perhaps a special-purpose integrator should be used.\n  ans.append(integrate.quad(intgr, 0, np.inf, param[i]))\n<ipython-input-7-8752b7c868ed>:13: IntegrationWarning: The integral is probably divergent, or slowly convergent.\n  ans.append(integrate.quad(intgr, 0, np.inf, param[i]))\n<ipython-input-7-8752b7c868ed>:13: IntegrationWarning: The algorithm does not converge.  Roundoff error is detected\n  in the extrapolation table.  It is assumed that the requested tolerance\n  cannot be achieved, and that the returned result (if full_output = 1) is \n  the best which can be obtained.\n  ans.append(integrate.quad(intgr, 0, np.inf, param[i]))\n",
+          "output_type": "stream"
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": "<pyolite.display.Image at 0x4801020>",
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8qNh9FAAAACXBIWXMAAA9hAAAPYQGoP6dpAABi6UlEQVR4nO3deXhTZfYH8O9N0iTdktK9hbIvLXRjESw6KlplGx1mHBcGBRFhdOQ3Ko4jODMu48IsIjrqiKiIKIg6ihuLIoiooEChrG3ZoXRfaNI1aZbfH8kNFEppS5N7k/v9PE8ex/QmORkwPXnf95wjOJ1OJ4iIiIhIMVRSB0BEREREvsUEkIiIiEhhmAASERERKQwTQCIiIiKFYQJIREREpDBMAImIiIgUhgkgERERkcIwASQiIiJSGCaARERERArDBJCIiIhIYZgAEhERESkME0AiIiIihWECSERERKQwTACJiIiIFIYJIBEREZHCMAEkIiIiUhgmgEREREQKwwSQiIiISGGYABIREREpDBNAIiIiIoVhAkhERESkMEwAiYiIiBSGCSARERGRwjABJCIiIlIYJoBERERECsMEkIiIiEhhmAASERERKQwTQCIiIiKFYQJIREREpDBMAImIiIgUhgkgERERkcIwASQiIiJSGCaARERERArDBJCIiIhIYZgAEhERESkME0AiIiIihWECSERERKQwTACJiIiIFIYJIBEREZHCMAEkIiIiUhgmgEREREQKwwSQiIiISGGYAHaRzZs348Ybb0RiYiIEQcCnn37aocc/+eSTEAThvFtoaKh3AiYiIiLFYgLYRerr65GRkYFXX321U4//05/+hJKSkha3wYMH45ZbbuniSImIiEjpmAB2kfHjx+OZZ57Br3/961Z/brFY8Kc//Qndu3dHaGgoRo0ahU2bNnl+HhYWhvj4eM+trKwMBw4cwIwZM3z0DoiIiEgpmAD6yOzZs7F161asXLkSe/bswS233IJx48bh0KFDrV7/5ptvYuDAgfjFL37h40iJiIgo0DEB9IGTJ0/i7bffxkcffYRf/OIX6NevH/70pz/hyiuvxNtvv33e9U1NTVi+fDlX/4iIiMgrNFIHoAR79+6F3W7HwIEDW9xvsVgQFRV13vWrVq1CbW0tpk2b5qsQiYiISEGYAPpAXV0d1Go1cnJyoFarW/wsLCzsvOvf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kjocxaqrq8OwYcPw3//+F8888wwyMzPx4osvSh2WIs2dOxc//vgjvv/+e6lDIQC//OUvERcXh7feestz380334zg4GC89957EkZGcsQVQBmxWq3IyclBdna25z6VSoXs7Gxs3bpVwsgIAEwmEwAgMjJS4kiU7f7778fEiRNb/HdC0vj8888xYsQI3HLLLYiNjcXQoUPxxhtvSB2WYo0ePRobNmzAwYMHAQC7d+/GDz/8gPHjx0scGcmRRuoA6IzKykrY7XbExcW1uD8uLg75+fkSRUWAayX2wQcfxBVXXIHU1FSpw1GslStXYufOndi+fbvUoRCAo0eP4rXXXsOcOXPw2GOPYfv27fjjH/8IrVaLadOmSR2e4sydOxdmsxnJyclQq9Ww2+149tlnMWXKFKlDIxliAkjUDvfffz/27duHH374QepQFKuwsBAPPPAA1q9fD71eL3U4BNcXoxEjRuC5554DAAwdOhT79u3DokWLmABK4MMPP8Ty5cuxYsUKDBkyBLm5uXjwwQeRmJjIPw86DxNAGYmOjoZarUZZWVmL+8vKyhAfHy9RVDR79mx8+eWX2Lx5M3r06CF1OIqVk5OD8vJyDBs2zHOf3W7H5s2b8corr8BisUCtVksYofIkJCRg8ODBLe5LSUnBxx9/LFFEyvbII49g7ty5uP322wEAaWlpOHHiBObPn88EkM7DM4AyotVqMXz4cGzYsMFzn8PhwIYNG5CVlSVhZMrkdDoxe/ZsrFq1Chs3bkSfPn2kDknRrrvuOuzduxe5ubme24gRIzBlyhTk5uYy+ZPAFVdccV5rpIMHD6JXr14SRaRsDQ0NUKla/lpXq9VwOBwSRURyxhVAmZkzZw6mTZuGESNGYOTIkXjxxRdRX1+P6dOnSx2a4tx///1YsWIFPvvsM4SHh6O0tBQAYDQaERwcLHF0yhMeHn7e+cvQ0FBERUXxXKZEHnroIYwePRrPPfccbr31Vmzbtg2LFy/G4sWLpQ5NkW688UY8++yz6NmzJ4YMGYJdu3bhhRdewN133y11aCRDbAMjQ6+88gr+/e9/o7S0FJmZmfjPf/6DUaNGSR2W4giC0Or9b7/9Nu666y7fBkOtuuaaa9gGRmJffvkl5s2bh0OHDqFPnz6YM2cOZs6cKXVYilRbW4u//e1vWLVqFcrLy5GYmIjJkyfj8ccfh1arlTo8khkmgEREREQKwzOARERERArDBJCIiIhIYZgAEhERESkME0AiIiIihWECSERERKQwTACJiIiIFIYJIBEREZHCMAEkIiIiUhgmgEREREQKwwSQiIiISGGYABIREREpDBNAIiIiIoVhAkhERESkMEwAiYiIiBSGCSARERGRwjABJCIiIlIYJoBERERECsMEkIiIiEhhmAASERERKQwTQCIiIiKFYQJIREREpDBMAImIiIgUhgkgERERkcIwASQiIiJSGCaARERERArDBJCIiIhIYZgAEhERESkME0AiIiIihWECSERERKQwTACJiIiIFIYJIBEREZHC/D/R+W+fG9S2YQAAAABJRU5ErkJggg=="
+          },
+          "metadata": {}
+        },
+        {
+          "execution_count": 7,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(7130271.129841628, 14183430.806526411)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x = np.linspace(0,50,1000)  \n\nfor i in range(1):\n    J = ((jv(i,x)))\n    K = ((yn(i,x)))\n    plt.plot(x,K)\n    plt.plot(x,J)\n\nplt.show()\n\nnp.sum(J), np.sum(K)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": "<pyolite.display.Image at 0x4094768>",
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8qNh9FAAAACXBIWXMAAA9hAAAPYQGoP6dpAAB290lEQVR4nO3dd1iT5/4G8DsDwgZlo6jgAPceuFfdVTusdte22mFPa7X1pz2ttue0x+5ta6d2WztsrXvixC1uUFQEkY3snby/P54kiDLeQAIJuT/XxZUY3jd5EpDcecb3UUiSJIGIiIiI7IaysRtARERERA2LAZCIiIjIzjAAEhEREdkZBkAiIiIiO8MASERERGRnGACJiIiI7AwDIBEREZGdYQAkIiIisjMMgERERER2hgGQiIiIyM4wABIRERHZGQZAIiIiIjvDAEhERERkZxgAiYiIiOwMAyARERGRnWEAJCIiIrIzDIBEREREdoYBkIiIiMjOMAASERER2RkGQCIiIiI7wwBIREREZGcYAImIiIjsDAMgERERkZ1hACQiIiKyMwyARERERHaGAZCIiIjIzjAAEhEREdkZBkAiIiIiO8MASERERGRnGACJiIiI7AwDIBEREZGdYQAkIiIisjMMgERERER2hgGQiIiIyM4wABIRERHZGQZAIiIiIjvDAEhERERkZxgAiYiIiOwMAyARERGRnWEAJCIiIrIzDIBEREREdoYBkIiIiMjOMAASERER2RkGQCIiIiI7wwBIREREZGcYAImIiIjsDAMgERERkZ1hACQiIiKyMwyARERERHaGAZCIiIjIzjAAEhEREdkZBkAiIiIiO8MASERERGRnGACJiIiI7AwDIBEREZGdYQAkIiIisjPqxm6ALdPpdLh27Rrc3d2hUCgauzlEREQkgyRJyMvLQ1BQEJRK++wLYwCsh2vXriE4OLixm0FERER1kJiYiJYtWzZ2MxoFA2A9uLu7AxC/QB4eHo3cGiIiIpIjNzcXwcHBxvdxe8QAWA+GYV8PDw8GQCIiIhtjz9O37HPgm4iIiMiOMQASERER2RkGQCIiIiI7wwBIREREZGcYAImIiIjsDAMgERERkZ1hACQiIiKyMwyARERERHaGAZCIiIjIzjSZALh7927cfvvtCAoKgkKhwF9//VXrOZGRkejVqxc0Gg3atWuHlStXWrydRERE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dnOatPHjxxuvd+vWDf3790fr1q2xevVqdOzYsRFb1rRxCNiK+Pj4QKVSITU1tdLtqampCAgIaKRWNW2G15Wvufk888wzWLduHXbu3ImWLVsab+drbT6Ojo5o164devfujaVLl6J79+746KOP+Bqb0dGjR5GWloZevXpBrVZDrVZj165d+Pjjj6FWq409Unytzc/LywsdOnRAXFwcf6ctiAHQijg6OqJ3797Yvn278TadToft27cjIiKiEVvWdIWEhCAgIKDSa56bm4uDBw/yNTeRJEl45plnsGbNGuzYsQMhISGVvs/X2nJ0Oh1KSkr4GpvRqFGjcOrUKURHRxu/+vTpg/vvvx/R0dEIDQ3la20h+fn5uHjxIgIDA/k7bUmNvQqFKlu1apWk0WiklStXSmfPnpVmz54teXl5SSkpKY3dNJuVl5cnHT9+XDp+/LgEQHr//fel48ePS1euXJEkSZLefPNNycvLS/r777+lkydPSlOmTJFCQkKkoqKiRm65bXnqqackT09PKTIyUkpOTjZ+FRYWGo/ha11/CxculHbt2iVdvnxZOnnypLRw4UJJoVBIW7ZskSSJr7El3bgKWJL4WpvL/PnzpcjISOny5cvSvn37pNGjR0s+Pj5SWlqaJEl8nS2FAdAKffLJJ1KrVq0kR0dHqV+/ftKBAwcau0k2befOnRKAW74efvhhSZJEmYFXXnlF8vf3lzQajTRq1CgpNja2cRttg6p6jQFIK1asMB7D17r+Hn30Ual169aSo6Oj5OvrK40aNcoY/iSJr7El3RwA+Vqbx/Tp06XAwEDJ0dFRatGihTR9+nQpLi7O+H2+zpahkCRJapy+RyIiIiJqDJwDSERERGRnGACJiIiI7AwDIBEREZGdYQAkIiIisjMMgERERER2hgGQiIiIyM4wABIRERHZGQZAIiIiIjvDAEhERERkZxgAiYiIiOwMAyARERGRnWEAJCIiIrIzDIBEREREdoYBkIiIiMjOMAASERER2RkGQCIiIiI7wwBIREREZGcYAImIiIjsDAMgERERkZ1hACQiIiKyMwyARERERHaGAZCIiIjIzjAAEhEREdkZBkAiIiIiO8MASERERGRnGACJiIiI7AwDIBEREZGdYQAkIiIisjMMgERERER2hgGQiIiIyM4wABIRERHZmf8HtKE7xKzMx5gAAAAASUVORK5CYII="
+          },
+          "metadata": {}
+        },
+        {
+          "execution_count": 6,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(18.538527095782605, -inf)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "sign = []\ntotal = []\nintg = []\nlog = []\ntan = []\n\nfor j in range((50)):\n    for k in range(200):\n        if k % 2 == 0:\n            sign.append(-1)\n        else:\n            sign.append(1)\n\nfor l in range(1,45):\n    intg.append(l)#(1*[l])\n    totl.append(sign[l])\n    log.append(sign[l] / intg[l-1])\n    tan.append((sign[l] / (2 * intg[l-1]))*3)\n            \nnp.sum(log), np.log(2), np.sum(tan), np.tan(np.pi/4)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "execution_count": 21,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(0.6819126431118251,\n 0.6931471805599453,\n 1.0228689646677374,\n 0.9999999999999999)"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "#e calculation\n\nrandools = np.linspace(0,51,52)\nzeros = np.linspace(0,51,0)\nzerosgraph = np.linspace(0, 9999, 10000)\n\nrandOO = []\ndef randO(N):\n    #randOO.append(deck)\n    for i in range (0,N):\n        randOO.append(np.random.choice(52, size = 52, replace = False))\n    return randOO\n\nrandO(30000)\n\nmatchOO = []\ndef match(N):\n    for i in range (1,N):\n        matchOO.append(np.array_equal(randools, randOO[i]))\n    return matchOO\n\nmatch(30000)\n\ndiffOO = []\ndef diff(N):\n    for i in range (1,N):\n        diffOO.append(np.subtract(randools, randOO[i]))\n    return diffOO\n\ndiff(30000)\n\nzerosOO = []\ndef zeros(N):\n    for i in range (1,N):\n        zerosOO.append(np.product(diffOO[i]))\n    return zerosOO\n\nzeros(20000)\n\ncountOO = []\ndef count(N):\n    for i in range (1,N):\n        countOO.append((np.count_nonzero(zerosOO[i])))\n        #/(i))\n        #countOO.append(((i)/np.count_nonzero(zerosOO[i])))\n    return countOO\n\ncount(15000)\n\ntotderOO = []\ndef dersum(N):\n    for i in range (0, N):\n        totderOO.append(sum(countOO[:(i)]))\n        #(np.sum(countOO[i]))\n    return totderOO\n\ndersum(10000)\n        \necalc = totderOO/zerosgraph\n\neinv = 1 / np.e\n\nzeroe = np.full((1,10000), einv)\n    \nplt.plot(zerosgraph, ecalc, zeroe)\n\nplt.show()",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
